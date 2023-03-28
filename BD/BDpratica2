@@ -1,0 +1,10 @@
+1) Qual a sua linguagem de programação favorita?
+2) Qual a biblioteca ou classe a linguagem possui para interface com o banco?
+3) Qual função/método para registrar credenciais de usuarios novos (caso tenha). Quais parametros recebe?
+4) Qual a função/método para criar novas tabelas? Quais parametros recebe e o que retorna?
+5) Qual a função/método para inserção e qual entrada e saida?
+6) Qual a função/método para alteração e qual entrada e saida?
+7) Qual a função/método para renovação e qual entrada e saida?
+8) Qual a função/método para consulta e qual entrada e saida?
+9) Qual a função/método para gerar visão e qual entrada e saida?
+10) Em casa, fazer um HelloWorld que use todos as funções métodos mencionados acima?
