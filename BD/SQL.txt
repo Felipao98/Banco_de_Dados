@@ -1,0 +1,188 @@
+Banco de dados contem tabelas
+Tabelas contem registros
+Registros sao compostos por campos
+
+create database cadastro;
+Cria um BD
+
+create table pessoas{};
+Cria uma tabela
+
+TIPOS PRIMITIVOS
+numericos - INTEIRO (TinyInt, SmallInt, Int, MediumInt, BigInt), REAIS(Decimal, Float, Double, Real), LOGICO(Bit, Boolean);
+
+data e tempo(Date, DateTime, TimeStamp, Time, Year);
+
+literais - CARACTERE(Char, VarChar), TEXTO(TinyText, Text, MediumText, LongText), BINARIO(TinyBlob, Blob, MediumBlob, LongBlob), COLECAO(Enum, Set)
+
+espaciais (Geometry, Pointm Polygon, MultiPolygon)
+
+create table pessoas(
+...
+);
+cria tabela
+
+drop database cadastro;
+Apaga o BD cadastro
+
+create database cadastro
+default character set utf8
+default collate utf8_general_ci;
+Aprimora o BD com coficacao padrao portugues
+
+not null
+Obriga a digitar algo
+
+auto_increment
+Armazena em ordem: ID1, ID2, ...
+
+primary key (id)
+Chave primaria
+
+DDL (Data Definition Language)
+Comandos de definicao
+
+insert into pessoas
+('...','...')
+values
+('...','...')
+Insira os valores nas areas em ordem.
+
+select * from pessoas;
+Mostra o que esta cadastrado.
+
+Clicar em cima do comando e executar para que mostre na tela
+
+Se os dados do insert estiverem em ordem, nao precisa informar os parametros novamente
+
+Pode adicionar em sequencia, sem precisar colocar um de cada vez.
+
+DML - Data Manipulation Language
+INSERT into pessoas
+
+ALTER table
+Alterar algo na tabela
+
+ALTER TABLE pessoas
+ADD COLUMN profissao varchar(10);
+Adiciona o campo/coluna na tabela pessoas
+
+desc pessoas;
+Descreve o que eh tabela pessoas.
+
+ALTER TABLE pessoas
+DROP COLUMN profissao;
+Elimina a coluna da tabela.
+
+ALTER TABLE pessoas
+ADD COLUMN codigo int FIRST;
+Adiciona a coluna na primeira posicao.
+
+O termo COLUMN pode omitir.
+
+MODIFY COLUMN profissao varchar(20);
+Modifica a coluna citada, porem nao renomeia o campo, modifica tipos e constrange.
+
+Uma constrage nao aceita o NOT NULL sem a acrescentar o default '':
+modify column profissao varchar(10) not null default '';
+
+ALTER TABLE pessoas
+CHANGE COLUMN profissao prof varchar(20);
+Renomeiar o nome da coluna citada.
+
+ALTER TABLE pessoas
+RENAME TO gafanhotos;
+Renomeia o nome da tabela inteira.
+
+CREATE TABLE IF NOT EXISTS cursos(...);
+Cria a tabela cursos se nao existir uma tabela com o mesmo nome.
+
+nome varchar(10) not null UNIQUE.
+Nome unico.
+
+carga int UNSIGNED
+Inteiro sem sinal.
+
+(DDL) -> ALTER TABLE cursos
+add primary key(idcursos);
+Adiciona a chave primaria na tabela.
+
+(DDL) -> drop table cursos;
+Apaga a tabela citada.
+
+MANIPULANDO LINHAS/TUPLAS
+UPDATE cursos
+SET nome = 'HTML5' //Muda o HTML4 para HTML5
+WHERE idcurso = '1'; //Localizacao de moficacao
+
+Exemplo.:
+update cursos
+set nome = 'PHP' , ano = '2015'
+where idcurso = '4';
+
+update cursos
+set nome = 'JAVA' , carga = '40', ano = '2015'
+where idcurso = '5';
+Nao precisa colocar em ordem no SET
+
+update cursos
+set nome = 'PHP' , ano = '2015'
+where idcurso = '4'
+LIMIT 1;
+Limita quantas linhas sao afetadas.
+
+DELETE from cursos
+where idcurso = '8';
+Apague na tabela cursos onde o idcursos = 8.
+
+TRUNCATE table cursos;
+Apaga todos os registros da tabela.
+
+GERENCIAMENTO CÓPIAS DE SEGURANÇA MySQL
+Gerar um DUMP - gera um backup do BD.
+
+select 		* 	from 	cursos
+Seleciona	todos os campos		da tabela cursos
+
+select * from cursos
+order by nome;
+Ordena por nome crescente. Com o DESC no final, em ordem decrescente.
+
+select nome, carga, ano from cursos;
+Mostra somente as colunas selecionadas.
+
+select * from cursos // select nome, carga from cursos
+WHERE ano = '2016'
+order by nome;
+Mostra somente as linhas especificadas.
+
+result set = resultado de uma consulta
+
+WHERE ano <= '2015'
+
+WHERE ano BETWEEN 2016 and 2018
+Faixas de valores.
+
+WHERE ano IN (2014,2016)
+Valores especificos.
+
+WHERE carga > 35 and totaulas < 30;
+
+WHERE carga > 35 or totaulas < 30;
+
+ONDE PAROU<<><><><><
+
+select nome, carga, ano from cursos
+WHERE ano <> '2016'
+order by ano, nome;
+
+select nome, ano from cursos
+WHERE ano between 2016 and 2018
+order by ano, nome;
+
+select * from cursos
+WHERE carga > 35 and totaulas < 30;
+
+desc cursos;
+
+select * from cursos;
